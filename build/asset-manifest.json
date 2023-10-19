@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.fa1f3f20.css",
+    "main.js": "/static/js/main.2399ce72.js",
+    "static/js/787.baa77fad.chunk.js": "/static/js/787.baa77fad.chunk.js",
+    "static/media/seispersonas.png": "/static/media/seispersonas.68ca27a780f9e92080e7.png",
+    "static/media/cincopersonas.png": "/static/media/cincopersonas.c7abd86110f39887b7aa.png",
+    "static/media/cuatropersonas.png": "/static/media/cuatropersonas.f16e7729c488dc4b574f.png",
+    "static/media/trespersonas.png": "/static/media/trespersonas.aa17d3c8b7822e4b860f.png",
+    "static/media/dospersonas.png": "/static/media/dospersonas.8c5b8cb7ab23854d8ef0.png",
+    "static/media/Maestra.jpg": "/static/media/Maestra.5b48fc0646dfc11bb4b7.jpg",
+    "static/media/Mesero.jpg": "/static/media/Mesero.b11a15af55b3c8e562e1.jpg",
+    "static/media/Huevo-estrellado.png": "/static/media/Huevo-estrellado.487340241154f55bd3b4.png",
+    "static/media/Jugo-naranja.png": "/static/media/Jugo-naranja.46335cbb1eb4be29f1cb.png",
+    "static/media/Cocinero.jpg": "/static/media/Cocinero.34df9495f94903a8e20d.jpg",
+    "static/media/unapersona.png": "/static/media/unapersona.dd521be9319200a83bb9.png",
+    "index.html": "/index.html",
+    "main.fa1f3f20.css.map": "/static/css/main.fa1f3f20.css.map",
+    "main.2399ce72.js.map": "/static/js/main.2399ce72.js.map",
+    "787.baa77fad.chunk.js.map": "/static/js/787.baa77fad.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fa1f3f20.css",
+    "static/js/main.2399ce72.js"
+  ]
+}

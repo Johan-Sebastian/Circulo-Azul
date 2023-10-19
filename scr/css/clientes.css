@@ -1,0 +1,52 @@
+.pantalla-clientes{
+    width: 70%;
+    margin: 0 auto;
+}
+.flex-container-clientes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+h1{
+    color:  #ec4434 ;
+    font-size: 70px;
+    font-weight: bold;
+}
+.flex-item-personas{
+    display: flex;
+    /* justify-content: center; */
+    /* align-items: center; */
+    width: 250px;
+    height: 170px;
+    margin: 10px;
+    /* text-align: center; */
+    line-height: 100px;
+    background-color:  #ec4434 ;
+    color: white;
+    border-radius: 20px;
+    font-weight: 900;
+    font-size: 70px;
+}
+.flex-item-personas img{
+    height: 60%;
+}
+.numero{
+    display: flex;
+    width: 30%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.content-img{
+    display: flex;
+    width: 70%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.img-cancelar{
+    margin-top: 25px;
+    width: 7%;
+}

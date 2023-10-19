@@ -1,0 +1,39 @@
+.pantalla-mesas{
+    width: 70%;
+    margin: 0 auto;
+}
+.flex-container {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.flex-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 170px;
+    margin: 10px;
+    text-align: center;
+    line-height: 100px;
+    background-color:  #ec4434 ;
+    color: white;
+    border-radius: 20px;
+    font-weight: 900;
+    font-size: 70px;
+    text-decoration: none;
+}
+h1{
+    color:  #ec4434 ;
+    font-size: 70px;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 0px;
+}
+.img-cancelar{
+    float: left;
+    width: 7%;
+}

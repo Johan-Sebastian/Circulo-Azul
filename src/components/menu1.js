@@ -36,7 +36,7 @@ const MenuUsuario = () => {
         <Link to="/Meseros" style={{ textDecoration: 'none' }}><img className="boton_mesero" src={mesero} onClick="" /><h3 className="mesero">MESERO</h3></Link>
         </div>
         <div className="Item">
-        <Link to="/Docente" style={{ textDecoration: 'none' }}><img className="boton_docente" src={docente} onClick="" /><h3 className="docente">DOCENTE</h3></Link>
+        <Link to="/Docente" style={{ textDecoration: 'none' }}><img className="boton_docente" src={docente} onClick="" /><h3 className="docentee">DOCENTE</h3></Link>
         </div>
       </div>
       <div className="boton-center">

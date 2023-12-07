@@ -1,0 +1,56 @@
+.Contenedor {
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 70%;
+    margin: 0 auto;
+}
+.Item {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    /* height: 340px; */
+    margin: 0px;
+    text-align: center;
+    /* font-weight: 900;
+    font-size: 70px; */
+    text-decoration: none;
+    margin-top: 80px;
+}
+.boton_cocina{
+    border-radius: 5px;
+    width: 70%;
+  }
+.boton_mesero{
+    border-radius: 5px;
+    width: 70%;
+}
+.boton_docente{
+    border-radius: 5px;
+    width: 70%;
+}
+h3.cocina{
+    color: gold;
+    text-align: center;
+    font-size: 35px;
+}
+h3.mesero{
+    color: red;
+    text-align: center;
+    font-size: 35px;
+}
+h3.docente{
+    color: blue;
+    text-align: center;
+    font-size: 35px;
+}
+.boton-center{
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    font-weight: bolder;
+}

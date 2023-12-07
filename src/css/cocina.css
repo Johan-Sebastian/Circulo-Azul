@@ -1,0 +1,74 @@
+/*img {
+    width: 20%;
+// Máximo ancho de 80px 
+margin-left: 154px;
+    height: auto;
+}*/
+
+
+.meseros {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+/*.mesero {
+    background-color: #07bbbb;
+    padding: 10px;
+    border-radius: 5px;
+}*/
+
+
+.section {
+    border: 1px solid #07bbbb; /* Bordes para separar secciones */
+    margin: 10px; /* Espacio entre secciones */
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #07bbbb;
+}
+
+h2 {
+    margin: 0;
+}
+
+.reservas-button {
+    position: fixed;
+    background-color: #07bbbb;
+    top: 10px; /* Distancia desde la parte superior */
+    right: 10px; /* Distancia desde la parte derecha */
+    padding: 10px;
+}
+
+.mesas-table {
+    border-collapse: collapse;
+    margin-left: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mesas-table td,
+.mesas-table th {
+    border: 4px solid #07bbbb;
+    padding: 8px;
+    width: 800px;
+    text-align: center;
+    font-size: 25px;
+
+}
+
+.mesas-table th {
+    background-color: #07bbbb;
+    color: white;
+}
+
+.mesas-table tr:nth-child(even) {
+    background-color: #07bbbb;
+}
+
+.mesas-table tr:hover {
+    background-color: #07bbbb;
+    color: rgb(30, 134, 63);
+}

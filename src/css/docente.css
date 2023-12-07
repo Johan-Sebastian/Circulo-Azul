@@ -1,0 +1,57 @@
+
+/*h3 {
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+}*/
+
+.header {
+  background-color: #07bbbb;
+  padding: 20px;
+  text-align: center;
+}
+
+.meseros {
+  display: flex;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+/*.mesero {
+  background-color: #07bbbb;
+  padding: 10px;
+  border-radius: 5px;
+}*/
+
+.content {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.mesas-table {
+  border-collapse: collapse;
+  width: 60%;
+  margin-right: 20px;
+}
+
+.mesas-table td,
+.mesas-table th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.mesas-table th {
+  background-color: #07bbbb;
+  color: white;
+}
+
+.mesas-table tr:nth-child(even) {
+  background-color: #07bbbb;
+}
+
+.mesas-table tr:hover {
+  background-color: #07bbbb;
+  color: white;
+}

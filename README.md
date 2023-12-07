@@ -1,0 +1,1 @@
+$env:GOOGLE_APPLICATION_CREDENTIALS="D:\Residencia\PACirculoAzul\pa-circulo-azul-firebase-adminsdk-zwxm4-a6e99d17f7.json"

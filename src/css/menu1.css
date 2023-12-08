@@ -1,53 +1,60 @@
-.Contenedor {
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #daf5f5;
+    font-family: Arial, sans-serif;
+}
+
+.container {
     display: flex;
-    justify-content: center;
-    /* align-items: center; */
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 70%;
-    margin: 0 auto;
-}
-.Item {
-    /* display: flex; */
-    justify-content: center;
+    height: 100vh;
+    justify-content: space-between;
     align-items: center;
-    width: 300px;
-    /* height: 340px; */
-    margin: 0px;
-    text-align: center;
-    /* font-weight: 900;
-    font-size: 70px; */
-    text-decoration: none;
-    margin-top: 80px;
+    padding: 2vh;
 }
-.boton_cocina{
-    border-radius: 5px;
-    width: 70%;
-  }
-.boton_mesero{
-    border-radius: 5px;
-    width: 70%;
+
+.options {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Agregado para centrar verticalmente */
 }
-.boton_docente{
-    border-radius: 5px;
-    width: 70%;
+
+.option, .big-option {
+    width: 40%;
+    margin: 2vh;
+    border: 4px solid #07bbbb;
+    background-color: #07bbbb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0px;
+    cursor: pointer;
+    text-align: center; /* Agregado para centrar horizontalmente */
 }
-h3.cocina{
-    color: gold;
-    text-align: center;
-    font-size: 35px;
+
+.option img{
+    width: 90%;
+    height: auto;
 }
-h3.mesero{
-    color: red;
-    text-align: center;
-    font-size: 35px;
+
+.big-option img {
+    width: 100%;
+    height: auto;
 }
-h3.docente{
-    color: blue;
-    text-align: center;
-    font-size: 35px;
+
+.big-option {
+    margin: 5vh;
+    border: 5px solid #07bbbb;
+    background-color: #07bbbb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 20px 20px;
+    margin-right: 20%;
 }
-.boton-center{
+
+.boton-center {
     align-items: center;
     justify-content: center;
     align-content: center;

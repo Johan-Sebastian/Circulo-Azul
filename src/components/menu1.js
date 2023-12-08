@@ -28,19 +28,26 @@ const MenuUsuario = () => {
 
   return (
     <React.Fragment>
-      <div className="Contenedor">
-        <div className="Item">
-        <Link to="/Cocina" style={{ textDecoration: 'none' }}><img className="boton_cocina" src={cocinero} onClick="" /><h3 className="cocina">COCINA</h3></Link>
-        </div>
-        <div className="Item">
-        <Link to="/Meseros" style={{ textDecoration: 'none' }}><img className="boton_mesero" src={mesero} onClick="" /><h3 className="mesero">MESERO</h3></Link>
-        </div>
-        <div className="Item">
-        <Link to="/Docente" style={{ textDecoration: 'none' }}><img className="boton_docente" src={docente} onClick="" /><h3 className="docentee">DOCENTE</h3></Link>
-        </div>
+      <div class="container">
+          <div class="options">
+              <div class="option">
+                  <Link to="/Cocina"><img src={cocinero} onClick="" />
+                  <h3>COCINA</h3></Link>
+              </div>
+
+              <div class="option">
+                  <Link to="/Docente"><img src={docente} onClick="" />
+                  <h3>DOCENTE</h3></Link>
+              </div>
+          </div>
+
+          <div class="big-option">
+              <Link to="/Meseros"><img src={mesero} onClick="" />
+              <h3>MESERO</h3></Link>
+          </div>
       </div>
       <div className="boton-center">
-      <Button style={{backgroundColor:"#b2dafa", fontWeight:"bolder"}} variant="contained" size="large" onClick={()=>signOut(auth)}>Cerrar Sesión</Button>
+          <Button style={{backgroundColor:"#b2dafa", fontWeight:"bolder"}} variant="contained" size="large" onClick={()=>signOut(auth)}>Cerrar Sesión</Button>
       </div>
     </React.Fragment>
   );

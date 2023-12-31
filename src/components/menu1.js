@@ -24,30 +24,39 @@ const Item = styled(Paper)(({ theme }) => ({
 const auth = getAuth(firebaseApp);
 
 const MenuUsuario = () => {
-
-
   return (
     <React.Fragment>
-      <div class="container">
-          <div class="options">
-              <div class="option">
-                  <Link to="/Cocina"><img src={cocinero} onClick="" />
-                  <h3>COCINA</h3></Link>
-              </div>
-
-              <div class="option">
-                  <Link to="/Docente"><img src={docente} onClick="" />
-                  <h3>DOCENTE</h3></Link>
-              </div>
-          </div>
-
-          <div class="big-option">
-              <Link to="/Meseros"><img src={mesero} onClick="" />
-              <h3>MESERO</h3></Link>
-          </div>
+      <div className="header_Line">
+          <hr className="line" />
+          <h2 className="page_Title">Mi Circulo-Azul</h2>
       </div>
-      <div className="boton-center">
-          <Button style={{backgroundColor:"#b2dafa", fontWeight:"bolder"}} variant="contained" size="large" onClick={()=>signOut(auth)}>Cerrar Sesión</Button>
+      <div className="header_Menu">
+          {/* Otros elementos del encabezado */}
+          <Button
+            style={{ backgroundColor: "#b2dafa", fontWeight: "bolder" }}
+            variant="contained"
+            size="large"
+            onClick={() => signOut(auth)}>
+            Cerrar Sesión
+          </Button>
+      </div>
+      <div class="container_Menu">
+          <div class="options_Menu">
+              <div class="option_Menu">
+                  <Link to="/Cocina"><img src={cocinero} onClick="" />
+                  <h3 className="titles_Menu">COCINA</h3></Link>
+              </div>
+
+              <div class="option_Menu" style={{ textDecoration: 'none' }}>
+                  <Link to="/Docente"><img src={docente} onClick="" />
+                  <h3 className="titles_Menu">DOCENTE</h3></Link>
+              </div>
+          </div>
+
+          <div class="big-option_Menu">
+              <Link to="/Meseros"><img src={mesero} onClick="" />
+              <h3 className="titles_Menu">MESERO</h3></Link>
+          </div>
       </div>
     </React.Fragment>
   );

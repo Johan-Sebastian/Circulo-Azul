@@ -1,28 +1,114 @@
-/*img {
-    width: 20%;
-// Máximo ancho de 80px 
-margin-left: 154px;
-    height: auto;
-}*/
+.Ordenes_Cocina {
+    display: flex;
+    height: 90vh;
+    align-items: flex-start;
+    padding: 2vh;
+    width: 100%;
+}
+.Ordenes_Cocina img{
+    width: 300px;
+    height: 80px; /* Ajusta la altura según tus necesidades */
+    overflow: clip; /* Oculta cualquier parte de la imagen que exceda el contenedor */
+    padding-top: 5px;
+}
 
+.Ordenes_Menu_Cocina {
+    display: flex;
+    /*flex-direction: column;*/
+    align-items: flex-end; /* Agregado para centrar verticalmente */
+}
 
-.meseros {
+.Orden_Menu_Cocina{
+
+    margin: 0.5vh;
+    border: 4px solid #07bbbb;
+    background-color: #07bbbb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0px;
+    text-align: center; /* Agregado para centrar horizontalmente */
+}
+.Secciones_Menu_Cocina {
+
+    margin: 0.5vh;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px 0px;
+    cursor: pointer;
+    text-align: center; /* Agregado para centrar horizontalmente */
+}
+.Orden_Menu_Cocina {
+    display: flex;
+    flex-direction: column;
+}
+.Orden_Menu_Cocina  img {
+    width: 280px;
+    height: 50px; /* Ajusta la altura según tus necesidades */
+    overflow: hidden; /* Oculta cualquier parte de la imagen que exceda el contenedor */
+}
+.Secciones_Menu_Cocina {
+    margin: 1vh;
+    border: 1px solid #07bbbb;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    padding: 20px 0px;
+    width: 80%;
+}
+
+.imagen_recortada {
+    width: 20%; /* La imagen ocupará el 100% del contenedor */
+    height: 20%; /* La imagen ocupará el 100% del contenedor */
+    object-fit: cover; /* La imagen se ajustará para cubrir completamente el contenedor */
+    object-position: center; /* La imagen estará centrada dentro del contenedor */
+}
+
+.table_Cocina {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 2px;
+    vertical-align: middle;
+}
+.table_Cocina th, td{
+    border: 1px solid #07bbbb;
+    text-align: left;
+    padding: 8px;
+}
+.Secciones_Menu_Cocina th, td {
+    border: 1px solid #07bbbb;
+    
+    text-align: left;
+    padding: 8px;
+}
+.Secciones_Menu_Cocina th {
+    background-color: #07bbbb;
+}
+
+.Numero_Mesa_Cocina {
+    display: flex;
+    padding: 2vh;
+    flex-direction: column;
+}
+
+.meseros_Cocina {
     display: flex;
     justify-content: space-around;
     padding: 10px;
 }
 
-/*.mesero {
+.mesero {
     background-color: #07bbbb;
     padding: 10px;
     border-radius: 5px;
-}*/
+}
 
 
-.section {
+.section_Cocina {
     border: 1px solid #07bbbb; /* Bordes para separar secciones */
-    margin: 10px; /* Espacio entre secciones */
-    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -33,42 +119,120 @@ h2 {
     margin: 0;
 }
 
-.reservas-button {
+.reservas-button_Cocina {
     position: fixed;
     background-color: #07bbbb;
-    top: 10px; /* Distancia desde la parte superior */
-    right: 10px; /* Distancia desde la parte derecha */
-    padding: 10px;
+    top: 13px; /* Distancia desde la parte superior */
+    right: 12px; /* Distancia desde la parte derecha */
+    padding: 10px 10px;
 }
 
-.mesas-table {
+.mesas-table_Cocina {
     border-collapse: collapse;
     margin-left: 20%;
+    margin-right: 20%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.mesas-table td,
-.mesas-table th {
+.mesas-table_Cocina td,
+.mesas-table_Cocina th {
     border: 4px solid #07bbbb;
-    padding: 8px;
+    padding: 1px 10px; /* Reduce el espaciado interno */
     width: 800px;
     text-align: center;
-    font-size: 25px;
-
+    font-size: 20px; /* Ajusta el tamaño de la fuente según sea necesario */
 }
 
-.mesas-table th {
-    background-color: #07bbbb;
-    color: white;
+.line_cocina {
+    width: 100%;
+    border: 2px solid #07bbbb; /* Color de la línea, ajusta según tu diseño */
 }
 
-.mesas-table tr:nth-child(even) {
-    background-color: #07bbbb;
+.double-clickable {
+    cursor: pointer;
 }
 
-.mesas-table tr:hover {
-    background-color: #07bbbb;
-    color: rgb(30, 134, 63);
+.img_Cocina{
+    width: 90%;
+    height: auto;
+}
+
+.no_padding_Cocina td {
+    padding: 0;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+.No_border_right_width {
+    border-right-width: 0px;
+    margin: 0;
+    padding: 4;
+    background-color: #7bc2ff96;
+    font-family: Arial, sans-serif;
+    font-weight: bold;
+    font-size: 2em;
+}
+.No_border_left_width {
+    border-left-width: 0px;
+}
+.No_border_laterals_width {
+    border-left-width: 0px;
+    border-right-width: 0px;
+}
+.Cubrir_Alto_Cocina {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #07bbbb;
+    background-color: #07bbbb7a;
+    padding: 0 8px;
+}
+
+.Texto_Cocina{
+    font-size: 0.9em;
+    align-items: center;
+    padding: 0 2px;
+    font-family: Arial, sans-serif;
+}
+.no_padding_Vertical{
+    padding-top: 0;
+    padding-bottom: 0;
+    background-color: #c2e9e9d8;
+}
+
+.Cuadro_Izquierda_Cocina {
+    padding: 0 10px;
+    letter-spacing: -1px;
+}
+
+.Ajustar_Texto_Cocina {
+  font-size: 1.5em;
+}
+.Quitar_Borde_Cocina {
+    border: 0px solid #07bbbb;
+    padding-right: 0px;
+}
+
+.displey_Cocina {
+    display: flex;
+}
+.contenedor_vertical_Cocina {
+    display: flex;
+  flex-direction: column;
+  background-color: #07bbbb7a;
+  padding: 20px 0;
+}
+  
+.boton_Cocina {
+    flex: 1;
+    border: 1px solid #07bbbb;
+    background-color: #07bbbb7a;
+    text-orientation: upright;
+    white-space: nowrap;
+    padding: 0 20pt;
+    font-size: 3.5em;
+    color: #150c41;
+    cursor: pointer;
 }

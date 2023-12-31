@@ -4,24 +4,52 @@ body {
     background-color: #daf5f5;
     font-family: Arial, sans-serif;
 }
+.header_Line {
+    text-align: center; /* Centra el contenido horizontalmente */
+}
 
-.container {
+.line {
+    width: 100%;
+    border: 1px solid #07bbbb; /* Color de la línea, ajusta según tu diseño */
+}
+
+.page_Title {
+    background-color: #daf5f5; /* Color de fondo, ajusta según tu diseño */
+    padding: 0 20px; /* Añade espacio alrededor del título */
+    position: relative;
+    top: -20px; /* Ajusta la posición vertical del título */
+    display: inline-block; /* Permite que el fondo se ajuste al contenido */
+    color: #302b55;
+}
+
+.header_Menu {
+    margin-right: 2%;
     display: flex;
-    height: 100vh;
+    justify-content: space-between; /* Alinea los elementos al inicio y al final del contenedor */
+    align-items: center; /* Centra verticalmente los elementos */
+}
+
+.header_Menu button {
+    margin-left: auto; /* Mueve el botón al extremo derecho del contenedor */
+}
+
+.container_Menu {
+    display: flex;
+    height: 50vh;
     justify-content: space-between;
     align-items: center;
     padding: 2vh;
 }
 
-.options {
+.options_Menu {
     display: flex;
     flex-direction: column;
     align-items: flex-end; /* Agregado para centrar verticalmente */
 }
 
-.option, .big-option {
+.option_Menu, .big-option_Menu {
     width: 40%;
-    margin: 2vh;
+    margin: 0.5vh;
     border: 4px solid #07bbbb;
     background-color: #07bbbb;
     display: flex;
@@ -32,32 +60,32 @@ body {
     text-align: center; /* Agregado para centrar horizontalmente */
 }
 
-.option img{
+.option_Menu img{
     width: 90%;
     height: auto;
 }
 
-.big-option img {
-    width: 100%;
+.big-option_Menu img {
+    width: 80%;
     height: auto;
 }
 
-.big-option {
-    margin: 5vh;
+.big-option_Menu {
+    margin: 2vh;
     border: 5px solid #07bbbb;
     background-color: #07bbbb;
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
-    padding: 20px 20px;
+    padding: 20px 0px;
     margin-right: 20%;
 }
 
-.boton-center {
-    align-items: center;
-    justify-content: center;
-    align-content: center;
-    display: flex;
-    font-weight: bolder;
+.titles_Menu{
+    margin: 5px 0; /* Elimina el margen superior e inferior */
+    color: #302b55; /* Cambia el color del texto a negro, puedes ajustar según tu diseño */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    cursor: default; /* Cambia el cursor al predeterminado */
+    font-size: 12;
 }

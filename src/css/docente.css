@@ -1,4 +1,3 @@
-
 /*h3 {
   margin: 0;
   padding: 0;
@@ -9,12 +8,14 @@
   background-color: #07bbbb;
   padding: 20px;
   text-align: center;
+  vertical-align: middle;
 }
 
 .meseros {
   display: flex;
   justify-content: space-around;
   padding: 10px;
+  vertical-align: middle;
 }
 
 /*.mesero {
@@ -29,10 +30,15 @@
   padding: 20px;
 }
 
+.cuadrante {
+  width: 22.5%; /* Ajusta el ancho según tus necesidades */
+}
+
 .mesas-table {
   border-collapse: collapse;
   width: 60%;
   margin-right: 20px;
+  vertical-align: middle;
 }
 
 .mesas-table td,
@@ -40,18 +46,27 @@
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
+  vertical-align: middle;
 }
 
 .mesas-table th {
   background-color: #07bbbb;
   color: white;
+  vertical-align: middle;
 }
 
 .mesas-table tr:nth-child(even) {
   background-color: #07bbbb;
+  vertical-align: middle;
 }
 
 .mesas-table tr:hover {
   background-color: #07bbbb;
   color: white;
+  vertical-align: middle;
+}
+
+/* Añadido para centrar verticalmente */
+.mesas-table td {
+  vertical-align: middle;
 }

@@ -1,14 +1,13 @@
-/*h3 {
-  margin: 0;
-  padding: 0;
-  font-size: 15px;
-}*/
-
-.header {
+.header_Docente {
   background-color: #07bbbb;
   padding: 20px;
   text-align: center;
   vertical-align: middle;
+  color: #302b55;
+}
+
+.header_Docente h1{
+  color: #302b55;
 }
 
 .meseros {
@@ -18,55 +17,36 @@
   vertical-align: middle;
 }
 
-/*.mesero {
-  background-color: #07bbbb;
-  padding: 10px;
-  border-radius: 5px;
-}*/
-
-.content {
+.content_Docente {
   display: flex;
   justify-content: space-around;
   padding: 20px;
 }
 
-.cuadrante {
-  width: 22.5%; /* Ajusta el ancho según tus necesidades */
-}
-
-.mesas-table {
+.Mesas_Table_Docente {
   border-collapse: collapse;
-  width: 60%;
   margin-right: 20px;
-  vertical-align: middle;
 }
 
-.mesas-table td,
-.mesas-table th {
+.Mesas_Table_Docente h2 {
+  text-align: center;
+  color: #302b55;
+}
+
+.Mesas_Table_Docente table {
+  width: 100%;
+}
+
+.Mesas_Table_Docente th,
+.Mesas_Table_Docente td {
   border: 1px solid #ddd;
   padding: 8px;
   text-align: left;
-  vertical-align: middle;
+  text-align: center; /* Centrar horizontalmente el texto */
+  vertical-align: middle; /* Centrar verticalmente el texto */
 }
 
-.mesas-table th {
+.Mesas_Table_Docente th {
   background-color: #07bbbb;
   color: white;
-  vertical-align: middle;
-}
-
-.mesas-table tr:nth-child(even) {
-  background-color: #07bbbb;
-  vertical-align: middle;
-}
-
-.mesas-table tr:hover {
-  background-color: #07bbbb;
-  color: white;
-  vertical-align: middle;
-}
-
-/* Añadido para centrar verticalmente */
-.mesas-table td {
-  vertical-align: middle;
 }

@@ -1,26 +1,26 @@
 {
   "files": {
-    "main.css": "/static/css/main.099b4bba.css",
-    "main.js": "/static/js/main.9710a4b6.js",
+    "main.css": "/static/css/main.41ad4c96.css",
+    "main.js": "/static/js/main.34213cf8.js",
     "static/js/787.fa9a0afd.chunk.js": "/static/js/787.fa9a0afd.chunk.js",
-    "static/media/seispersonas.png": "/static/media/seispersonas.68ca27a780f9e92080e7.png",
-    "static/media/Mesero.jpg": "/static/media/Mesero.c868227bb87d08f0f23a.jpg",
-    "static/media/cincopersonas.png": "/static/media/cincopersonas.c7abd86110f39887b7aa.png",
+    "static/media/Mesero.jpg": "/static/media/Mesero.004ee021e6b0d4a447c9.jpg",
     "static/media/Maestra.jpg": "/static/media/Maestra.b33e4133ec44272a88ff.jpg",
-    "static/media/cuatropersonas.png": "/static/media/cuatropersonas.f16e7729c488dc4b574f.png",
-    "static/media/trespersonas.png": "/static/media/trespersonas.aa17d3c8b7822e4b860f.png",
+    "static/media/seispersonas.png": "/static/media/seispersonas.a34f8c8406b921f9d04f.png",
+    "static/media/cincopersonas.png": "/static/media/cincopersonas.e41f93b0d1614292e37f.png",
     "static/media/Cocinero.jpg": "/static/media/Cocinero.11d0c1ecef7bf3ccfda3.jpg",
-    "static/media/dospersonas.png": "/static/media/dospersonas.8c5b8cb7ab23854d8ef0.png",
+    "static/media/cuatropersonas.png": "/static/media/cuatropersonas.0ef43aac028e3b1c08d6.png",
+    "static/media/trespersonas.png": "/static/media/trespersonas.6739ab655b827c2c3a92.png",
     "static/media/Huevo-estrellado.png": "/static/media/Huevo-estrellado.487340241154f55bd3b4.png",
     "static/media/Jugo-naranja.png": "/static/media/Jugo-naranja.46335cbb1eb4be29f1cb.png",
-    "static/media/unapersona.png": "/static/media/unapersona.dd521be9319200a83bb9.png",
+    "static/media/dospersonas.png": "/static/media/dospersonas.4847cf592f8d67ccf3aa.png",
+    "static/media/unapersona.png": "/static/media/unapersona.f684ca1c40ba6d179fcf.png",
     "index.html": "/index.html",
-    "main.099b4bba.css.map": "/static/css/main.099b4bba.css.map",
-    "main.9710a4b6.js.map": "/static/js/main.9710a4b6.js.map",
+    "main.41ad4c96.css.map": "/static/css/main.41ad4c96.css.map",
+    "main.34213cf8.js.map": "/static/js/main.34213cf8.js.map",
     "787.fa9a0afd.chunk.js.map": "/static/js/787.fa9a0afd.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.099b4bba.css",
-    "static/js/main.9710a4b6.js"
+    "static/css/main.41ad4c96.css",
+    "static/js/main.34213cf8.js"
   ]
 }

@@ -34,14 +34,23 @@ export const ListaFrutas = () => {
   return (
     <>
       <div className="content-items">
-        <Link to="/Meseros" style={{ textDecoration: 'none' }}><img className="img-cancelar" src={cancelar} /></Link>
+        <Link to="/Meseros" style={{ textDecoration: 'none' }}><img className="img_cancelar_2" src={cancelar} /></Link>
         <h1>Selecciona un postre</h1>
-        <h1 className="cliente-actual"><ClienteActual/></h1>
-        <ul className="lista-items">
-          {platillos.map((fruta) => (
-            <li><Link onClick={() => savePlatillo(fruta.Nombre, fruta.Foto)} to="/Observaciones" style={{ textDecoration: 'none' }}><ItemMenu item={fruta} bandera={fruta.Nombre == frutaRecomendada ? true : false} /></Link></li>
-          ))}
-        </ul>
+        <div>
+            <Link to="/Bebidas" style={{ textDecoration: 'none' }}>
+                <button className="boton_Meseros_2">
+                    🢀
+                </button>
+            </Link>
+        </div>
+        <div class="flex-container">
+          <h1 className="cliente-actual">Cliente : <ClienteActual/></h1>
+          <ul className="lista-items">
+            {platillos.map((fruta) => (
+              <li><Link onClick={() => savePlatillo(fruta.Nombre, fruta.Foto)} to="/Observaciones" style={{ textDecoration: 'none' }}><ItemMenu item={fruta} bandera={fruta.Nombre == frutaRecomendada ? true : false} /></Link></li>
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   );

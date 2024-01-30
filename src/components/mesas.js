@@ -19,6 +19,13 @@ const Mesas = () => {
         <div className="pantalla-mesas">
             <Link to="/Meseros" style={{ textDecoration: 'none' }}><img className="img-cancelar" src={cancelar} /></Link>
             <h1>Selecciona tu mesa</h1>
+            <div>
+                <Link to="/Meseros" style={{ textDecoration: 'none' }}>
+                    <button className="boton_Meseros">
+                        🢀
+                    </button>
+                </Link>
+            </div>
             <div class="flex-container">
                 <Link to="/Clientes" style={{ textDecoration: 'none' }}><div onClick={() => saveMesa(1)} className="flex-item">1</div></Link>
                 <Link to="/Clientes" style={{ textDecoration: 'none' }}><div onClick={() => saveMesa(2)} className="flex-item">2</div></Link>

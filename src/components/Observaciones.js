@@ -19,6 +19,7 @@ const Observaciones = () => {
         localStorage.setItem("Observacion", observacion)
 
         //Se obtienen los demas parametros guardados en el local storage
+        var clienteActual1 = localStorage.getItem('clienteActual');
         var mesa1 = localStorage.getItem('Mesa');
         var noClientes1 = localStorage.getItem('NoClientes');
         var platillo1 = localStorage.getItem('Platillo');
@@ -32,6 +33,7 @@ const Observaciones = () => {
 
         //Se crea un objeto de lista
         var pedido = {
+            clienteActual : clienteActual1,
             mesa : mesa1,
             noClientes : noClientes1,
             platillo : platillo1,
@@ -71,9 +73,24 @@ const Observaciones = () => {
 
     return (
         <div className="pantalla-observaciones">
-            <Link to="/Meseros" style={{ textDecoration: 'none' }}><img className="img-cancelar" src={cancelar} /></Link>
+            <Link to="/Meseros" style={{ textDecoration: 'none' }}><img className="img_cancelar_2" src={cancelar} /></Link>
+            <h1>Se confirma el:</h1>
+            <div className="Titulo_h2">Cliente : <ClienteActual /></div>
+
+            <Container >
+                <Stack direction="row" justifyContent="center" alignItems="center" spacing={4} marginTop="2%">
+                    <Button onClick={()=> saveObservacion("")} size="50 px" borderRadius={12} type="button"><Link to={direccion} style={{ textDecoration: 'none' }}><img className="btn-redonda" src={aceptar} /></Link></Button>
+
+                </Stack>
+            </Container>
+        </div>
+    );
+
+    /*return (
+        <div className="pantalla-observaciones">
+            <Link to="/Meseros" style={{ textDecoration: 'none' }}><img className="img_cancelar_2" src={cancelar} /></Link>
             <h1>Observaciones</h1>
-            <h1 className="cliente-actual"><ClienteActual /></h1>
+            <h1 className="cliente-actual">Cliente : <ClienteActual /></h1>
             <div className="content-input">
                 <textarea id="txtObservacion" className="input-observaciones" name="textarea" placeholder="Escribe aquí las observaciones"></textarea>
             </div>
@@ -85,7 +102,7 @@ const Observaciones = () => {
                 </Stack>
             </Container>
         </div>
-    );
+    );*/
 };
 
 export default Observaciones;  

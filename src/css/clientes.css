@@ -10,9 +10,16 @@
     flex-wrap: wrap;
 }
 h1{
-    color:  #ec4434 ;
+    color:  #00a6a6 ;
     font-size: 70px;
     font-weight: bold;
+}
+.Titulo_h2{
+    color:  #00a6a6 ;
+    font-size: 60px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
 }
 .flex-item-personas{
     display: flex;
@@ -23,7 +30,7 @@ h1{
     margin: 10px;
     /* text-align: center; */
     line-height: 100px;
-    background-color:  #ec4434 ;
+    background-color:  #129c9c ;
     color: white;
     border-radius: 20px;
     font-weight: 900;
@@ -46,7 +53,48 @@ h1{
     align-items: center;
     justify-content: center;
 }
+.img_Regresar{
+    float: left;
+    margin-top: 25px;
+    width: 17%;
+    margin-left: -15%;
+}
 .img-cancelar{
     margin-top: 25px;
-    width: 7%;
+    width: 10%;
+    margin-left: -15%;
+}
+.img_cancelar_2{
+    float: left;
+    margin-top: 25px;
+    width: 13%;
+    margin-left: -15%;
+}
+.boton_Meseros{
+    float: left;
+    margin-top: 25px;
+    margin-left: -15%;
+    display: flex;
+    flex-direction: column;
+    background-color: #129c9c;
+    border: 1px solid #07bbbb;
+    border-radius: 20px;
+    padding: 20% 10px;
+    cursor: pointer;
+    font-size: 3.5em;
+    color: #ffffff;
+}
+.boton_Meseros_2{
+    float: left;
+    margin-top: 25px;
+    margin-left: -15%;
+    display: flex;
+    flex-direction: column;
+    background-color: #129c9c;
+    border: 1px solid #07bbbb;
+    border-radius: 20px;
+    padding: 50% 10px;
+    cursor: pointer;
+    font-size: 3.5em;
+    color: #ffffff;
 }

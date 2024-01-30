@@ -31,6 +31,7 @@ body {
 
 .header_Menu button {
     margin-left: auto; /* Mueve el botón al extremo derecho del contenedor */
+    padding: 12px 30px;
 }
 
 .container_Menu {
@@ -88,4 +89,71 @@ body {
     text-decoration: none; /* Elimina el subrayado del enlace */
     cursor: default; /* Cambia el cursor al predeterminado */
     font-size: 12;
+}
+
+.PDF_BackGround{
+    background-color: #b8e7e7;
+}
+.PDF_Seleccion{
+    margin: 10px 0; /* Elimina el margen superior e inferior */
+    color: #302b55; /* Cambia el color del texto a negro, puedes ajustar según tu diseño */
+    text-decoration: none; /* Elimina el subrayado del enlace */
+    cursor: pointer;
+    margin-top: -30px;
+    margin-left: 350px;
+}
+
+.PDF_Check{
+    color: #302b55;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.3em;
+}
+
+.PDF_Check_2{
+    color: #302b55;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-top: -32px;
+    margin-left: 260px;
+}
+
+.PDF_checkbox{
+    transform: scale(1.6);
+    margin-right: 12px;
+}
+
+.PDF_Button{ 
+    border: 2px solid #28b3b3;
+    background-color: #47b4b47a;
+    color: #302b55;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    padding: 10px;
+    width: 270px;
+}
+
+.PDF_Title{
+    color: #302b55;
+    text-decoration: none;
+    cursor: pointer;
+    margin: 5px 0;
+}
+.PDF_Title_2{
+    margin-top: -50px;
+}
+.PDF_Fecha{
+    color: #302b55;
+    text-decoration: none;
+    font-size: 1.5em;
+    margin-top: 40px;
+    margin-left: 260px;
+    display: flex;
 }

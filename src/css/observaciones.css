@@ -1,6 +1,7 @@
 .pantalla-observaciones{
-    width: 70%;
+    /*width: 70%;*/
     margin: 0 auto;
+    margin-top: 100px;
 }
 .content-input{
     display: flex;
@@ -8,10 +9,10 @@
     align-items: center;
 }
 .input-observaciones{
-   width: 80%;
+   /*width: 80%;
    resize: none;
    height: 50vh;
-   font-size: xx-large;
+   font-size: xx-large;*/
 }
 .img-aceptar{
     padding-top: 5px;

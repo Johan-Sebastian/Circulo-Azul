@@ -20,6 +20,13 @@ const Clientes = () => {
         <div className="pantalla-clientes">
             <Link to="/Meseros" style={{ textDecoration: 'none' }}><img className="img-cancelar" src={cancelar} /></Link>
             <h1>¿Cuántas personas hay?</h1>
+            <div>
+                <Link to="/Mesas" style={{ textDecoration: 'none' }}>
+                    <button className="boton_Meseros">
+                        🢀
+                    </button>
+                </Link>
+            </div>
             <div class="flex-container-clientes">
                 <Link onClick={() => saveNoClientes(1)} to="/Platillos" style={{ textDecoration: 'none' }}>
                     <div class="flex-item-personas">

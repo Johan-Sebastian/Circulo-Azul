@@ -3,6 +3,7 @@
     height: 90vh;
     align-items: flex-start;
     padding: 2vh;
+    padding-top: 1vh;
     width: 100%;
 }
 .Ordenes_Cocina img{
@@ -80,7 +81,6 @@
 }
 .Secciones_Menu_Cocina th, td {
     border: 1px solid #07bbbb;
-    
     text-align: left;
     padding: 8px;
 }
@@ -224,6 +224,12 @@ h2 {
   background-color: #07bbbb7a;
   padding: 20px 0;
 }
+.contenedor_2_vertical_Cocina {
+    display: flex;
+  flex-direction: column;
+  background-color: #07bbbb7a;
+  padding: 60px 0;
+}
   
 .boton_Cocina {
     flex: 1;
@@ -232,7 +238,51 @@ h2 {
     text-orientation: upright;
     white-space: nowrap;
     padding: 0 20pt;
-    font-size: 3.5em;
+    font-size: 2.5em;
     color: #150c41;
     cursor: pointer;
+}
+.boton_2_Cocina {
+    flex: 1;
+    border: 1px solid #07bbbb;
+    background-color: #07bbbb7a;
+    text-orientation: upright;
+    white-space: nowrap;
+    font-size: 2.5em;
+    color: #150c41;
+    cursor: pointer;
+    writing-mode: vertical-rl; /* Modo de escritura vertical de derecha a izquierda */
+    transform: rotate(180deg); /* Rotación de 180 grados */
+}
+.tabla_Texto_Cocina{
+    border: 4px solid #07bbbb;
+    padding: 1px 10px; /* Reduce el espaciado interno */
+    width: 400px;
+    text-align: center;
+    font-size: 1.5em; /* Ajusta el tamaño de la fuente según sea necesario */
+    font-weight: bold;
+}
+.tabla_Cocina{
+    background-color: #7bc2ff96;
+}
+
+.img_Regresar_Cocina{
+    float: left;
+    margin-top: -41px;
+    width: 5%;
+}
+
+.Boton_PDF_Cocina{
+    float: left;
+    margin-top: -18px;
+    margin-left: 20px;
+    width: 255px;
+    padding: 19px;
+    border: 1px solid #07bbbb;
+    background-color: #07bbbb7a;
+    white-space: nowrap;
+    font-size: 1.5em;
+    color: #150c41;
+    cursor: pointer;
+    font-weight: bold;
 }

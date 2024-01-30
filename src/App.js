@@ -1,8 +1,8 @@
 //Importaciones de react-router-dom
-import { BrowserRouter as Router, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 //Hooks
-import React, {useState,useEffect} from 'react';
+import React, {useState} from 'react';
 
 //Importación de componentes
 import Mesas from "./components/mesas";
@@ -22,6 +22,10 @@ import Docente from "./components/Docente";
 import {firebaseApp}  from './firebase/firebaseConfig';
 import{getAuth,onAuthStateChanged} from "firebase/auth"
 
+
+import ListaPlatillosEdit from "./components/ListaPlatillosEdit";
+import ListaBebidasEdit from "./components/ListaBebidasEdit";
+import ListaFrutasEdit from "./components/ListaFrutasEdit";
 const auth=getAuth(firebaseApp);
 
 function App() {
@@ -50,6 +54,9 @@ function App() {
             <Route path="/Platillos" element={<ListaPlatillos/>} />
             <Route path="/Bebidas" element={<ListaBebidas/>} />
             <Route path="/Frutas" element={<ListaFrutas/>} />
+            <Route path="/PlatillosEdit" element={<ListaPlatillosEdit/>} />
+            <Route path="/BebidasEdit" element={<ListaBebidasEdit/>} />
+            <Route path="/FrutasEdit" element={<ListaFrutasEdit/>} />
             <Route path="/Observaciones" element={<Observaciones/>} />
             <Route path="/ConfirmarOrden" element={<ConfirmarOrden/>} />
             <Route path="/Cocina" element={<Cocina />} />

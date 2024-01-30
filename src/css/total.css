@@ -1,5 +1,5 @@
 .pantalla-total {
-  background-color: white;
+  background-color: #7bc2ff96;
   display: flex;
   flex-direction: column;
   height:100vh;
@@ -13,13 +13,13 @@
   width: 20%;
 }
 .Encabezado-Total {
-  color: #ec4434;
+  color: #00a6a6;
   font-size: 100px;
   font-weight: bold;
 }
 
 .Precio-Total {
-  color: #ec4434;
+  color: #00a6a6;
   font-size: 130px;
   font-weight: bold;
 }

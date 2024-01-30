@@ -34,14 +34,23 @@ export const ListaBebidas = () => {
   return (
     <>
       <div className="content-items">
-        <Link to="/Meseros" style={{ textDecoration: 'none' }}><img className="img-cancelar" src={cancelar} /></Link>
+        <Link to="/Meseros" style={{ textDecoration: 'none' }}><img className="img_cancelar_2" src={cancelar} /></Link>
         <h1>Selecciona una bebida</h1>
-        <h1 className="cliente-actual"><ClienteActual /></h1>
-        <ul className="lista-items">
-          {bebidas.map((bebida) => (
-            <li><Link onClick={() => saveBebida(bebida.Nombre, bebida.Foto)} to="/Frutas" style={{ textDecoration: 'none' }}><ItemMenu item={bebida} bandera={bebida.Nombre == bebidaRecomendada ? true : false} /></Link></li>
-          ))}
-        </ul>
+        <div>
+            <Link to="/Platillos" style={{ textDecoration: 'none' }}>
+                <button className="boton_Meseros_2">
+                    🢀
+                </button>
+            </Link>
+        </div>
+        <div class="flex-container">
+          <h1 className="cliente-actual">Cliente : <ClienteActual /></h1>
+          <ul className="lista-items">
+            {bebidas.map((bebida) => (
+              <li><Link onClick={() => saveBebida(bebida.Nombre, bebida.Foto)} to="/Frutas" style={{ textDecoration: 'none' }}><ItemMenu item={bebida} bandera={bebida.Nombre == bebidaRecomendada ? true : false} /></Link></li>
+            ))}
+          </ul>
+        </div>
       </div>
     </>
   );

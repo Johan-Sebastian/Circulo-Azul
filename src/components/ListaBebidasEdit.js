@@ -26,6 +26,7 @@ export const ListaBebidas = () => {
     const imgFruta1 = localStorage.getItem("imgFruta");
     const platillo1 = localStorage.getItem("Platillo");
     const imgPlatillo1 = localStorage.getItem("imgPlatillo");
+    const Mesero1 = localStorage.getItem("Mesero");
     const observacion1 = localStorage.getItem("Observacion");
     const ordenesListStorage = localStorage.getItem("ordenesList");
 
@@ -40,6 +41,7 @@ export const ListaBebidas = () => {
         imgBebida: imagen,
         fruta: fruta1,
         imgFruta: imgFruta1,
+        Mesero: Mesero1,
         observacion: observacion1,
     };
 
@@ -64,13 +66,16 @@ export const ListaBebidas = () => {
     setDireccion("/ConfirmarOrden");
     }, []);
 
+    const clienteActualValue = ClienteActual();
+    const clienteActualMinusOne = clienteActualValue - 1;
+
   return (
     <>
       <div className="content-items">
         <Link to="/Meseros" style={{ textDecoration: 'none' }}><img className="img_cancelar_2" src={cancelar} /></Link>
         <h1>Selecciona una bebida</h1>
         <div class="flex-container">
-          <h1 className="cliente-actual">Cliente : <ClienteActual /></h1>
+          <h1 className="cliente-actual">Cliente : {clienteActualMinusOne}</h1>
           <ul className="lista-items">
             {bebidas.map((bebida) => (
               <li><Link onClick={() => saveBebida(bebida.Nombre, bebida.Foto)} to={direccion} style={{ textDecoration: 'none' }}><ItemMenu item={bebida} bandera={bebida.Nombre == bebidaRecomendada ? true : false} /></Link></li>

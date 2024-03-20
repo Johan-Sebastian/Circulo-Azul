@@ -41,6 +41,7 @@ const ConfirmarOrden = () => {
     const Fruta1 = item.fruta;
     const imgFruta1 = item.imgFruta; 
     const Observacion1 = item.observacion;
+    const Mesero1 = item.Mesero;
 
     // Guardar datos localmente
     localStorage.setItem('clienteActual', clienteActual1);
@@ -53,7 +54,7 @@ const ConfirmarOrden = () => {
     localStorage.setItem('Fruta', Fruta1);
     localStorage.setItem('imgFruta', imgFruta1);
     localStorage.setItem('Observacion', Observacion1);
-
+    localStorage.setItem('Mesero', Mesero1);
   };
   
   return (

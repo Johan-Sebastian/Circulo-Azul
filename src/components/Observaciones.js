@@ -11,47 +11,8 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
 const Observaciones = () => {
-    //Uso de useState
+    // Uso de useState
     const [direccion, setDireccion] = useState("");
-
-    //Metodo para guardar la observación en el LocalStorage
-    function saveObservacion(observacion) {
-        localStorage.setItem("Observacion", observacion)
-
-        //Se obtienen los demas parametros guardados en el local storage
-        var clienteActual1 = localStorage.getItem('clienteActual');
-        var mesa1 = localStorage.getItem('Mesa');
-        var noClientes1 = localStorage.getItem('NoClientes');
-        var platillo1 = localStorage.getItem('Platillo');
-        var imgPLatillo1 = localStorage.getItem('imgPlatillo');
-        var bebida1 = localStorage.getItem('Bebida');
-        var imgBebida1 = localStorage.getItem('imgBebida');
-        var fruta1 = localStorage.getItem('Fruta');
-        var imgFruta1 = localStorage.getItem('imgFruta');
-        var observacion1 = localStorage.getItem('Observacion');
-        var ordenesListStorage = localStorage.getItem('ordenesList');
-
-        //Se crea un objeto de lista
-        var pedido = {
-            clienteActual : clienteActual1,
-            mesa : mesa1,
-            noClientes : noClientes1,
-            platillo : platillo1,
-            imgPlatillo : imgPLatillo1,
-            bebida : bebida1,
-            imgBebida : imgBebida1,
-            fruta : fruta1,
-            imgFruta : imgFruta1,
-            observacion : observacion1
-        }
-
-        //Se crea la lista y se agrega el registro
-        var ordenesList = [];
-        ordenesList = JSON.parse(ordenesListStorage);
-        ordenesList.push(pedido)
-        console.log(ordenesList)
-        localStorage.setItem("ordenesList", JSON.stringify(ordenesList))
-    }
 
     useEffect(() =>{
         console.log("Componente renderizado")
@@ -71,6 +32,45 @@ const Observaciones = () => {
         }
     }, []);
 
+    // Obtener datos del localStorage y crear el objeto pedido
+    var clienteActual1 = localStorage.getItem('clienteActual');
+    var mesa1 = localStorage.getItem('Mesa');
+    var noClientes1 = localStorage.getItem('NoClientes');
+    var platillo1 = localStorage.getItem('Platillo');
+    var imgPLatillo1 = localStorage.getItem('imgPlatillo');
+    var bebida1 = localStorage.getItem('Bebida');
+    var imgBebida1 = localStorage.getItem('imgBebida');
+    var fruta1 = localStorage.getItem('Fruta');
+    var imgFruta1 = localStorage.getItem('imgFruta');
+    var Mesero1 = localStorage.getItem('Mesero');
+    var observacion1 = localStorage.getItem('Observacion');
+    var ordenesListStorage = localStorage.getItem('ordenesList');
+
+    var pedido = {
+        clienteActual : clienteActual1,
+        mesa : mesa1,
+        noClientes : noClientes1,
+        platillo : platillo1,
+        imgPlatillo : imgPLatillo1,
+        bebida : bebida1,
+        imgBebida : imgBebida1,
+        fruta : fruta1,
+        imgFruta : imgFruta1,
+        Mesero : Mesero1,
+        observacion : observacion1
+    }
+
+    // Método para guardar la observación en el localStorage
+    function saveObservacion(observacion) {
+        localStorage.setItem("Observacion", observacion);
+
+        // Obtener la lista de órdenes del localStorage y agregar el nuevo pedido
+        var ordenesList = JSON.parse(ordenesListStorage) || [];
+        ordenesList.push(pedido);
+        console.log(ordenesList);
+        localStorage.setItem("ordenesList", JSON.stringify(ordenesList));
+    }
+
     return (
         <div className="pantalla-observaciones">
             <Link to="/Meseros" style={{ textDecoration: 'none' }}><img className="img_cancelar_2" src={cancelar} /></Link>
@@ -85,24 +85,6 @@ const Observaciones = () => {
             </Container>
         </div>
     );
-
-    /*return (
-        <div className="pantalla-observaciones">
-            <Link to="/Meseros" style={{ textDecoration: 'none' }}><img className="img_cancelar_2" src={cancelar} /></Link>
-            <h1>Observaciones</h1>
-            <h1 className="cliente-actual">Cliente : <ClienteActual /></h1>
-            <div className="content-input">
-                <textarea id="txtObservacion" className="input-observaciones" name="textarea" placeholder="Escribe aquí las observaciones"></textarea>
-            </div>
-            
-            <Container >
-                <Stack direction="row" justifyContent="center" alignItems="center" spacing={4} marginTop="2%">
-                    <Button onClick={()=> saveObservacion("")} size="50 px" borderRadius={12} type="button"><Link to={direccion} style={{ textDecoration: 'none' }}><img className="btn-redonda" src={cancel} /></Link></Button>
-                    <Button onClick={()=> saveObservacion(document.getElementById("txtObservacion").value)} size="50 px" borderRadius={12} type="button"><Link to={direccion} style={{ textDecoration: 'none' }}><img className="btn-redonda" src={aceptar} /></Link></Button>
-                </Stack>
-            </Container>
-        </div>
-    );*/
 };
 
-export default Observaciones;  
+export default Observaciones;

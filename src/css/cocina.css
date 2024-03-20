@@ -62,8 +62,6 @@
 }
 
 .imagen_recortada {
-    width: 20%; /* La imagen ocupará el 100% del contenedor */
-    height: 20%; /* La imagen ocupará el 100% del contenedor */
     object-fit: cover; /* La imagen se ajustará para cubrir completamente el contenedor */
     object-position: center; /* La imagen estará centrada dentro del contenedor */
 }
@@ -268,7 +266,7 @@ h2 {
 
 .img_Regresar_Cocina{
     float: left;
-    margin-top: -41px;
+    margin-top: -36px;
     width: 5%;
 }
 

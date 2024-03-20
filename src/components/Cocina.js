@@ -5,31 +5,20 @@ import "../css/cocina.css";
 import regresar from '../assets/images/regresar.png';
 import { Link } from "react-router-dom";
 
-import jsPDF from "jspdf";
-import "jspdf-autotable";
-
-import pdfjs from 'pdfjs-dist';
-
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
+import PDF from './PDF'
 
 const Cocina = () => {
+  const pdfMethods = PDF();
 
-  const [mesasConsecutivas, setMesasConsecutivas] = useState(Array.from({ length: 10 }, (_, i) => i + 1));
-  const LoadingIndicator = () => <div>Loading...</div>;
+
   const [mesasDB, setMesasDB] = useState([]);
-  const [mesasLoaded, setMesasLoaded] = useState(false);
-
-  const [fechaSeleccionada, setFechaSeleccionada] = useState(null);
-  const [rangoFechas, setRangoFechas] = useState([null, null]);
-
+  console.log("Mesas cargadas:", mesasDB);
   
-  
-  const [meseros, setMeseros] = useState(['Mesero1', 'Mesero2', 'Mesero3']);
   const [mostrarCapa, setMostrarCapa] = useState(false);
+  console.log("Estado de mostrarCapaA:", mostrarCapa);
   const [mesasSeleccionadas, setMesasSeleccionadas] = useState([]);
-  const [meserosSeleccionados, setMeserosSeleccionados] = useState([]);
-  const [seleccion, setSeleccion] = useState('mesas');
+
+  
   const [platillosSolicitados, setPlatillosSolicitados] = useState([]);
   const [frutasSolicitadas, setFrutasSolicitadas] = useState([]);
   const [bebidasSolicitadas, setBebidasSolicitadas] = useState([]);
@@ -199,30 +188,10 @@ const Cocina = () => {
       setOrdenesFinalizadas(ordenesFinalizadasTemp);
     });
 
-    const obtenerMesasDB = async () => {
-      try {
-        const pedidosSnapshot = await getDocs(collection(db, "pedidos"));
     
-        // Extraer mesas de los documentos de pedidos
-        const mesasDesdeDB = pedidosSnapshot.docs.reduce((mesas, doc) => {
-          const pedidoData = doc.data().pedido;
-          const mesasEnPedido = pedidoData.map((platilloPedido) => platilloPedido.mesa);
-          return [...mesas, ...mesasEnPedido];
-        }, []);
-    
-        // Eliminar duplicados y ordenar las mesas
-        const mesasUnicas = Array.from(new Set(mesasDesdeDB)).sort();
-    
-        setMesasDB(mesasUnicas);
-      } catch (error) {
-        console.error("Error al obtener las mesas desde la base de datos:", error);
-      }
-    };
-    obtenerMesasDB();
 
     return () => unsubscribe();
   }, []);
-  console.log("Mesas cargadas:", mesasDB);
 
   const agregarOrden = (ordenes, mesa, nombrePedido, imagenPlatillo) => {
     if (!ordenes[mesa]) {
@@ -249,6 +218,8 @@ const Cocina = () => {
 
   const actualizarEstado = async (NumeroMesa, estadoActual, nuevoEstado) => {
     try {
+      const horaFechaActual = new Date().toISOString(); // Obtiene la hora y fecha actual
+  
       const pedidosSnapshot = await getDocs(collection(db, "pedidos"));
   
       // Filtra los documentos que tienen el mismo número de NumeroMesa y el mismo estadoOrden
@@ -277,12 +248,10 @@ const Cocina = () => {
           platillosFiltrados.forEach((platillo) => {
             platillo.estadoOrden = nuevoEstado;
           });
-          platillosFiltrados.forEach((fruta) => {
-            fruta.estadoOrden = nuevoEstado;
-          });
   
-          // Actualiza el documento con el nuevo array de pedidos
-          await updateDoc(doc.ref, { pedido: pedidos });
+          // Registra la hora y fecha en la ubicación deseada
+          const horaFechaKey = `horaFecha${nuevoEstado.charAt(0).toUpperCase()}${nuevoEstado.slice(1)}`; // Construye la clave para la hora y fecha
+          await updateDoc(doc.ref, { pedido: pedidos, [horaFechaKey]: horaFechaActual }); // Actualiza la hora y fecha en la base de datos
         })
       );
   
@@ -295,205 +264,7 @@ const Cocina = () => {
   };
 
   const [mostrarImagenes, setMostrarImagenes] = useState({});// Usamos un objeto para almacenar el estado por mesa
-  const [botonComandaText, setBotonComandaText] = useState("Generar Comanda");
-
-  const handleCheckboxChange = (mesa) => {
-    const mesasSeleccionadasActualizadas = [...mesasSeleccionadas];
-
-    if (mesasSeleccionadas.includes(mesa)) {
-      // Si la mesa está seleccionada, quitarla de la lista
-      const index = mesasSeleccionadasActualizadas.indexOf(mesa);
-      mesasSeleccionadasActualizadas.splice(index, 1);
-    } else {
-      // Si la mesa no está seleccionada, agregarla a la lista
-      mesasSeleccionadasActualizadas.push(mesa);
-    }
-
-    setMesasSeleccionadas(mesasSeleccionadasActualizadas);
-  };
-
-  const handleMeseroCheckboxChange = (mesero) => {
-    const meserosSeleccionadosActualizados = [...meserosSeleccionados];
-
-    if (meserosSeleccionados.includes(mesero)) {
-      // Si el mesero está seleccionado, quitarlo de la lista
-      const index = meserosSeleccionadosActualizados.indexOf(mesero);
-      meserosSeleccionadosActualizados.splice(index, 1);
-    } else {
-      // Si el mesero no está seleccionado, agregarlo a la lista
-      meserosSeleccionadosActualizados.push(mesero);
-    }
-
-    setMeserosSeleccionados(meserosSeleccionadosActualizados);
-  };
   
-  const generarComanda = () => {
-    // Crear un nuevo objeto jsPDF
-    const pdf = new jsPDF();
-    const now = new Date();
-  
-    // Obtener la fecha y hora actual
-    const fecha = now.getDate() + '_' + (now.getMonth() + 1) + '_' + now.getFullYear();
-    const hora = now.getHours() + ';' + (now.getMinutes() < 10 ? '0' : '') + now.getMinutes();
-    const horas = now.getHours();
-    const minutos = now.getMinutes();
-  
-    const mesa = localStorage.getItem('Mesa');
-    const noClientes = localStorage.getItem('NoClientes');
-    const platillos = JSON.parse(localStorage.getItem('ordenesList')) || [];
-  
-    // Nombre del archivo con la fecha y hora
-    const nombreArchivo = `orden-${fecha}-${hora}.pdf`;
-  
-    // Agregar encabezado con información general
-    pdf.text(`Fecha: ${fecha}  Hora: ${hora}`, 10, 10);
-    pdf.text(`Mesa: ${mesa}  Número de Clientes: ${noClientes}`, 10, 20);
-  
-    // Agregar mesa seleccionada al título
-    pdf.text(`Mesa Seleccionada: ${mesa}`, 10, 30);
-  
-    // Agregar tabla con platillos
-    const platillosData = platillos.map((platillo) => {
-      const cantidad = platillo.cantidad || 0;
-      const precio = platillo.precio || 0;
-  
-      return [platillo.platillo || '', cantidad, precio.toFixed(2), cantidad * precio];
-    });
-  
-    const headers = ['Platillo', 'Cantidad Total', 'Precio Unitario', 'Precio Total'];
-  
-    pdf.autoTable({
-      startY: 40, // Ajusta la posición Y para evitar superposición con el título
-      head: [headers],
-      body: platillosData,
-    });
-  
-    // Calcular y agregar el total
-    const total = platillos.reduce((acc, platillo) => acc + platillo.cantidad * platillo.precio, 0);
-    pdf.text(`Total: $${total.toFixed(2)}`, 10, pdf.autoTable.previous.finalY + 10);
-  
-    // Guardar o mostrar el PDF
-    pdf.save(nombreArchivo);
-  };
-
-  const toggleCapa = () => {
-    setMostrarCapa(!mostrarCapa);
-    setMesasSeleccionadas([]);
-    setMeserosSeleccionados([]);
-    setBotonComandaText((prevText) => (prevText === "Generar Comanda" ? "Cerrar Comanda" : "Generar Comanda"));
-  };
-  const handleSelectAll = (tipo) => {
-    if (tipo === 'mesas') {
-      // Si hay mesas seleccionadas, deseleccionar todas, de lo contrario, seleccionar todas
-      setMesasSeleccionadas((mesasSeleccionadas) => (mesasSeleccionadas.length === mesasDB.length ? [] : mesasDB));
-    } else if (tipo === 'meseros') {
-      // Si hay meseros seleccionados, deseleccionar todos, de lo contrario, seleccionar todos
-      setMeserosSeleccionados((meserosSeleccionados) => (meserosSeleccionados.length === meseros.length ? [] : meseros));
-    }
-  };
-
-  const renderCapaSeleccion = () => {
-    console.log("Mesas en renderCapaSeleccion:", mesasDB);
-    return (
-      <div className="PDF_BackGround">
-        <div className="PDF_Seleccion">
-          <button
-            className={`PDF_Button ${seleccion === 'mesas' ? 'seleccionado' : ''}`}
-            onClick={() => setSeleccion('mesas')}
-          >
-            Mesas
-          </button>
-          <button
-            className={`PDF_Button ${seleccion === 'meseros' ? 'seleccionado' : ''}`}
-            onClick={() => setSeleccion('meseros')}
-          >
-            Meseros
-          </button>
-        </div>
-        <h2 className="PDF_Title">Selecciona {seleccion === 'mesas' ? 'mesas' : 'meseros'}:</h2>
-  
-        {/* Agrega la opción de seleccionar todos */}
-        <div className="PDF_Check_2">
-          <label>
-            <input
-              type="checkbox" className="PDF_checkbox"
-              checked={seleccion === 'mesas' ? mesasSeleccionadas.length === mesasDB.length : meserosSeleccionados.length === meseros.length}
-              onChange={() => handleSelectAll(seleccion)}
-            />
-            Seleccionar Todos
-          </label>
-        </div>
-
-        <div className="PDF_Fecha">
-          <DatePicker
-            selected={rangoFechas.startDate}
-            onChange={(date) => setRangoFechas({ ...rangoFechas, startDate: date })}
-            selectsStart
-            startDate={rangoFechas.startDate}
-            endDate={rangoFechas.endDate}
-            dateFormat="dd/MM/yyyy"
-            placeholderText="Fecha inicial"
-          />
-          <span> - </span>
-          <DatePicker
-            selected={rangoFechas.endDate}
-            onChange={(date) => setRangoFechas({ ...rangoFechas, endDate: date })}
-            selectsEnd
-            startDate={rangoFechas.startDate}
-            endDate={rangoFechas.endDate}
-            minDate={rangoFechas.startDate}
-            dateFormat="dd/MM/yyyy"
-            placeholderText="Fecha Final"
-          />
-        </div>
-        <div className="PDF_Title_2">
-          {seleccion === 'mesas' ? (
-            mesasDB.map((mesa) => (
-              <div key={mesa}>
-                <label className="PDF_Check">
-                  <input
-                    type="checkbox" className="PDF_checkbox"
-                    value={mesa}
-                    checked={mesasSeleccionadas.includes(mesa)}
-                    onChange={() => handleCheckboxChange(mesa)}
-                  />
-                  Mesa {mesa}
-                </label>
-              </div>
-            ))
-          ) : (
-            meseros.map((mesero) => (
-              <div key={mesero} className="PDF_Check">
-                <label>
-                  <input
-                    type="checkbox" className="PDF_checkbox"
-                    value={mesero}
-                    checked={meserosSeleccionados.includes(mesero)}
-                    onChange={() => handleMeseroCheckboxChange(mesero)}
-                  />
-                  {mesero}
-                </label>
-              </div>
-            ))
-          )}
-        </div>
-        <button className="PDF_Button" onClick={generarComanda}>Generar Comanda</button>
-      </div>
-    );
-  };
-  const mesasFiltradas = mesasDB.filter((mesa) => {
-    if (rangoFechas[0] && rangoFechas[1]) {
-      const fechaMesa = new Date(mesa.fecha);
-      return (
-        mesasSeleccionadas.includes(mesa) &&
-        fechaMesa >= rangoFechas[0] &&
-        fechaMesa <= rangoFechas[1]
-      );
-    } else {
-      return mesasSeleccionadas.includes(mesa);
-    }
-  });
-
   return (
     <React.Fragment>
       <div className="header_Line">
@@ -505,15 +276,12 @@ const Cocina = () => {
 
 
       <div>
-        <button className="Boton_PDF_Cocina" onClick={toggleCapa}>
-          {botonComandaText}
+        <button className="Boton_PDF_Cocina" onClick={pdfMethods.toggleCapa}>
+          {pdfMethods.botonComandaText}
         </button>
+        {pdfMethods.mostrarCapa && pdfMethods.renderCapaSeleccion()}
       </div>
-
-      {mostrarCapa && renderCapaSeleccion()}
-
-
-
+      
       <div class="Ordenes_Cocina">
         <div className="Orden_Menu_Cocina">
           <h2>Platillos Solicitados</h2>
@@ -707,7 +475,6 @@ const Cocina = () => {
           <div className="section_Cocina">
                 <h2>Órdenes Finalizadas</h2>
             </div>
-
             <div className="Numero_Mesa_Cocina">
               {Object.entries(ordenesFinalizadas).map(([mesa, ordenesPorMesaArray]) => (
                 <div className="displey_Cocina" key={mesa}>

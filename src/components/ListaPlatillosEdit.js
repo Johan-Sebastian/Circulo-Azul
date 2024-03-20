@@ -23,6 +23,7 @@ export const ListaPlatillos = () => {
     const imgBebida1 = localStorage.getItem("imgBebida");
     const fruta1 = localStorage.getItem("Fruta");
     const imgFruta1 = localStorage.getItem("imgFruta");
+    const Mesero1 = localStorage.getItem("Mesero");
     const observacion1 = localStorage.getItem("Observacion");
     const ordenesListStorage = localStorage.getItem("ordenesList");
 
@@ -37,6 +38,7 @@ export const ListaPlatillos = () => {
       imgBebida: imgBebida1,
       fruta: fruta1,
       imgFruta: imgFruta1,
+      Mesero: Mesero1,
       observacion: observacion1,
     };
 
@@ -61,12 +63,15 @@ export const ListaPlatillos = () => {
     setDireccion("/ConfirmarOrden");
   }, []);
 
+  const clienteActualValue = ClienteActual();
+  const clienteActualMinusOne = clienteActualValue - 1;
+
   return (
     <>
       <div className="content-items">
         <h1>Selecciona un platillo</h1>
         <div class="flex-container">
-          <h1 className="cliente-actual">Cliente : <ClienteActual /></h1>
+          <h1 className="cliente-actual">Cliente : {clienteActualMinusOne}</h1>
           <div id="txtObservacion" className="input-observaciones" name="textarea" placeholder=" "></div>
           <ul className="lista-items">
             {platillos.map((platillo) => (

@@ -147,7 +147,7 @@ body {
     margin: 5px 0;
 }
 .PDF_Title_2{
-    margin-top: -50px;
+    margin-top: -25px;
 }
 .PDF_Fecha{
     color: #302b55;
@@ -156,4 +156,54 @@ body {
     margin-top: 40px;
     margin-left: 260px;
     display: flex;
+}
+.disabled {
+    border: 2px solid #70aaaa;
+    background-color: #a5dbdb;
+    color: #868686;
+}
+
+.PDF_Orden {
+    border: 2px solid #28b3b3;
+    background-color: #47b4b47a;
+    color: #302b55;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-inline-end: 216px;
+    margin-top: -35px;
+    padding: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    float: right;
+}
+.PDF_ClearData {
+    border: 2px solid #28b3b3;
+    background-color: #47b4b47a;
+    color: #302b55;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    margin-inline-end: 216px;
+    margin-top: -28px;
+    padding: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    float: right;
+}
+
+.PDF_OneDay {
+    font-size: 1.5em;
+    text-decoration: none;
+    cursor: pointer;
+    margin-inline-end: 338px;
+    margin-top: 6px;
+    padding: 1px;
+    padding-left: 10px;
+    padding-right: 10px;
+    float: right;
+    color: #302b55;
+}
+.PDF_OneDay_Title {
+    font-size: 0.9em;
 }

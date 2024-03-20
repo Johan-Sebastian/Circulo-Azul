@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../css/mesas.css";
 import cancelar from '../assets/images/cancelar.png';
 import { Link } from "react-router-dom";
 import { Alert } from "@mui/material";
 
 const Mesas = () => {
+
+    // Eliminar todas las keys del localStorage al cargar la página
+    useEffect(() => {
+        for (let key in localStorage) {
+            if (key !== "Mesero") { // Verificar si la clave no es para Mesero
+                localStorage.removeItem(key);
+            }
+        }
+    }, []);
 
     //Metodo para guardar la mesa en el LocalStorage
     function saveMesa(mesa){

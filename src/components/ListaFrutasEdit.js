@@ -26,6 +26,7 @@ export const ListaFrutas = () => {
     const imgBebida1 = localStorage.getItem("imgBebida");
     const platillo1 = localStorage.getItem("Platillo");
     const imgPlatillo1 = localStorage.getItem("imgPlatillo");
+    const Mesero1 = localStorage.getItem("Mesero");
     const observacion1 = localStorage.getItem("Observacion");
     const ordenesListStorage = localStorage.getItem("ordenesList");
 
@@ -40,6 +41,7 @@ export const ListaFrutas = () => {
         imgBebida: imgBebida1,
         fruta: nombre,
         imgFruta: imagen,
+        Mesero: Mesero1,
         observacion: observacion1,
     };
 
@@ -64,13 +66,16 @@ export const ListaFrutas = () => {
     setDireccion("/ConfirmarOrden");
     }, []);
 
+    const clienteActualValue = ClienteActual();
+    const clienteActualMinusOne = clienteActualValue - 1;
+
     return (
         <>
             <div className="content-items">
             <Link to="/Meseros" style={{ textDecoration: 'none' }}><img className="img_cancelar_2" src={cancelar} /></Link>
             <h1>Selecciona un postre</h1>
             <div class="flex-container">
-                <h1 className="cliente-actual">Cliente : <ClienteActual/></h1>
+                <h1 className="cliente-actual">Cliente : {clienteActualMinusOne}</h1>
                 <ul className="lista-items">
                 {platillos.map((fruta) => (
                     <li><Link onClick={() => savePlatillo(fruta.Nombre, fruta.Foto)} to={direccion} style={{ textDecoration: 'none' }}><ItemMenu item={fruta} /></Link></li>

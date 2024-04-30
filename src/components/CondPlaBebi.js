@@ -1,5 +1,6 @@
 //Código para realizar una recomendación en base a condiciones
 function RecomendarFruta(platillo, bebida) {
+    // Verifica el platillo y bebida y devuelve una recomendación de fruta
     if (platillo == "Chilaquiles Verdes con Pollo") {
         if (bebida == "café"){
             return("Melones con Cotege")
@@ -112,5 +113,5 @@ function RecomendarFruta(platillo, bebida) {
         }
     }
   }
-
+// Exporta la función RecomendarFruta
   export default RecomendarFruta;

@@ -1,14 +1,14 @@
-import React from "react";
-import "../css/clientes.css";
-import uno from '../assets/images/unapersona.png'
-import dos from '../assets/images/dospersonas.png'
-import tres from '../assets/images/trespersonas.png'
-import cuatro from '../assets/images/cuatropersonas.png'
-import cinco from '../assets/images/cincopersonas.png'
-import seis from '../assets/images/seispersonas.png'
-import cancelar from '../assets/images/cancelar.png';
+import React from "react"; // Importa React desde la biblioteca react
+import "../css/clientes.css"; // Importa los estilos CSS para la pantalla de clientes
+import uno from '../assets/images/unapersona.png'; // Importa la imagen de una persona desde la ruta de imágenes
+import dos from '../assets/images/dospersonas.png'; // Importa la imagen de dos personas desde la ruta de imágenes
+import tres from '../assets/images/trespersonas.png'; // Importa la imagen de tres personas desde la ruta de imágenes
+import cuatro from '../assets/images/cuatropersonas.png'; // Importa la imagen de cuatro personas desde la ruta de imágenes
+import cinco from '../assets/images/cincopersonas.png'; // Importa la imagen de cinco personas desde la ruta de imágenes
+import seis from '../assets/images/seispersonas.png'; // Importa la imagen de seis personas desde la ruta de imágenes
+import cancelar from '../assets/images/cancelar.png'; // Importa la imagen de cancelar desde la ruta de imágenes
 
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"; // Importa el componente Link de react-router-dom
 
 const Clientes = () => {
     //Metodo para guardar el número de clientes en el LocalStorage
@@ -19,8 +19,9 @@ const Clientes = () => {
     return (
         <div className="pantalla-clientes">
             <Link to="/Meseros" style={{ textDecoration: 'none' }}><img className="img-cancelar" src={cancelar} /></Link>
-            <h1>¿Cuántas personas hay?</h1>
+            <h1>¿Cuántas personas hay?</h1> {/* Título de la pantalla */}
             <div>
+                {/* Botón para regresar a la pantalla de Mesas */}
                 <Link to="/Mesas" style={{ textDecoration: 'none' }}>
                     <button className="boton_Meseros">
                         🢀
@@ -28,6 +29,7 @@ const Clientes = () => {
                 </Link>
             </div>
             <div class="flex-container-clientes">
+                {/* Opciones para seleccionar el número de personas */}
                 <Link onClick={() => saveNoClientes(1)} to="/Platillos" style={{ textDecoration: 'none' }}>
                     <div class="flex-item-personas">
                         <div className="numero">1</div>
@@ -69,5 +71,5 @@ const Clientes = () => {
         </div>
     );
 };
-
+// Exporta el componente Clientes
 export default Clientes;  

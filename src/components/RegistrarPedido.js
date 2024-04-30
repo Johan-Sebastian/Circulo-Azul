@@ -1,19 +1,26 @@
-import { db } from "../firebase/firebaseConfig";
-import { collection, doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "../firebase/firebaseConfig"; // Importa la instancia de la base de datos Firestore
+import { collection, doc, setDoc, serverTimestamp } from "firebase/firestore"; // Importa funciones de Firestore para manipular documentos
 
+// Definición de la función para registrar un pedido en la base de datos
 function registrarPedido(pedido) {
-  const registrar = async () => {
-    const timestamp = serverTimestamp();
+  const registrar = async () => { // Define una función asíncrona llamada 'registrar'
+    const timestamp = serverTimestamp(); // Obtiene la marca de tiempo del servidor
 
-    // Obtener la fecha y hora actual
+    // Obtiene la fecha y hora actual
     const now = new Date();
 
     // Formatear la fecha y hora según el formato deseado
     const anio = now.getFullYear().toString();
+    // Obtiene el mes actual como un número (de 0 a 11), le suma 1 para obtener el mes real,
+    // luego lo convierte en una cadena de texto y lo ajusta a una longitud mínima de 2 caracteres agregando ceros a la izquierda si es necesario
     const mes = (now.getMonth() + 1).toString().padStart(2, '0');
+    // Obtiene el día del mes actual como un número, lo convierte en una cadena de texto y lo ajusta a una longitud mínima de 2 caracteres
     const dia = now.getDate().toString().padStart(2, '0');
+    // Obtiene la hora del día actual como un número (de 0 a 23), lo convierte en una cadena de texto y lo ajusta a una longitud mínima de 2 caracteres
     const hora = now.getHours().toString().padStart(2, '0');
+    // Obtiene los minutos de la hora actual como un número, lo convierte en una cadena de texto y lo ajusta a una longitud mínima de 2 caracteres
     const minutos = now.getMinutes().toString().padStart(2, '0');
+    // Obtiene los segundos del minuto actual como un número, lo convierte en una cadena de texto y lo ajusta a una longitud mínima de 2 caracteres
     const segundos = now.getSeconds().toString().padStart(2, '0');
 
     // Generar 8 dígitos aleatorios
@@ -51,6 +58,7 @@ function registrarPedido(pedido) {
       console.error("Error al agregar el pedido a la base de datos:", error);
     }
     
+    // Imprime los elementos del pedido en la consola
     pedido.forEach((elemento, indice) => {
       console.log(`Elemento en la posición ${indice}:`, elemento);
     });
@@ -60,5 +68,5 @@ function registrarPedido(pedido) {
   // Llama a la función asincrónica registrar
   registrar();
 }
-
+// Exporta la función 'registrarPedido' para su uso en otros archivos
 export default registrarPedido;

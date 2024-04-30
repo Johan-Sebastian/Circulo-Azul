@@ -1,5 +1,6 @@
 //Código para realizar una recomendación en base a condiciones
 function RecomendarBebida(platillo) {
+    // Verifica el platillo y devuelve una recomendación de bebida
     if (platillo == "Chilaquiles Verdes con Pollo") {
         return("Jugo");
     } else if (platillo == "Chilaquiles Rojos con Huevo"){
@@ -24,5 +25,5 @@ function RecomendarBebida(platillo) {
         return("Jugo");
     }
   }
-
+  // Exporta la función RecomendarBebida
   export default RecomendarBebida;

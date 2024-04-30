@@ -1,34 +1,34 @@
-import React, { useEffect, useState } from "react";
-import { ItemMenu } from "./ItemMenu";
-import ConsultaMenu from "./ConsultaMenu";
-import cancelar from '../assets/images/cancelar.png';
-import ClienteActual from "./ClienteActual";
+import React, { useEffect, useState } from "react"; // Importa React, useEffect y useState
+import { ItemMenu } from "./ItemMenu"; // Importa el componente ItemMenu
+import ConsultaMenu from "./ConsultaMenu"; // Importa la función ConsultaMenu
+import cancelar from '../assets/images/cancelar.png'; // Importa la imagen de cancelar
+import ClienteActual from "./ClienteActual"; // Importa el componente ClienteActual
 
-import "../css/vistasBD.css"
+import "../css/vistasBD.css" // Importa el archivo CSS correspondiente
 
-import { Link } from "react-router-dom"; 
+import { Link } from "react-router-dom"; // Importa el componente Link de react-router-dom
 
-export const ListaFrutas = () => {
-    //Uso de useState
+export const ListaFrutas = () => { // Define un componente de función llamado ListaFrutas
+    // Uso de useState para el estado de la fruta recomendada
     const [frutaRecomendada, setFrutaRecomendada] = useState("");
-  
+    // Obtiene las frutas del menú    
     const platillos = ConsultaMenu("fruta");
-    // Uso de useState
+    // Uso de useState para la dirección
     const [direccion, setDireccion] = useState("");
 
-    // Método para guardar el platillo y su imagen en el LocalStorage
+    // Método para guardar la fruta y su imagen en el LocalStorage
     function savePlatillo(nombre, imagen) {
     // Se obtienen los demás parámetros guardados en el local storage
-    const clienteActual1 = localStorage.getItem("clienteActual");
-    const mesa1 = localStorage.getItem("Mesa");
-    const noClientes1 = localStorage.getItem("NoClientes");
-    const bebida1 = localStorage.getItem("Bebida");
-    const imgBebida1 = localStorage.getItem("imgBebida");
-    const platillo1 = localStorage.getItem("Platillo");
-    const imgPlatillo1 = localStorage.getItem("imgPlatillo");
-    const Mesero1 = localStorage.getItem("Mesero");
-    const observacion1 = localStorage.getItem("Observacion");
-    const ordenesListStorage = localStorage.getItem("ordenesList");
+    const clienteActual1 = localStorage.getItem("clienteActual"); // Obtiene el valor de "clienteActual" del LocalStorage
+    const mesa1 = localStorage.getItem("Mesa"); // Obtiene el valor de "Mesa" del LocalStorage
+    const noClientes1 = localStorage.getItem("NoClientes"); // Obtiene el valor de "NoClientes" del LocalStorage
+    const bebida1 = localStorage.getItem("Bebida"); // Obtiene el valor de "Bebida" del LocalStorage
+    const imgBebida1 = localStorage.getItem("imgBebida"); // Obtiene el valor de "imgBebida" del LocalStorage
+    const platillo1 = localStorage.getItem("Platillo"); // Obtiene el valor de "Platillo" del LocalStorage
+    const imgPlatillo1 = localStorage.getItem("imgPlatillo"); // Obtiene el valor de "imgPlatillo" del LocalStorage
+    const Mesero1 = localStorage.getItem("Mesero"); // Obtiene el valor de "Mesero" del LocalStorage
+    const observacion1 = localStorage.getItem("Observacion"); // Obtiene el valor de "Observacion" del LocalStorage
+    const ordenesListStorage = localStorage.getItem("ordenesList"); // Obtiene el valor de "ordenesList" del LocalStorage
 
     // Se crea un objeto de lista
     const pedido = {
@@ -65,20 +65,25 @@ export const ListaFrutas = () => {
     // Condición para asignar la dirección
     setDireccion("/ConfirmarOrden");
     }, []);
-
+    // Obtiene el valor del cliente actual y resta uno
     const clienteActualValue = ClienteActual();
     const clienteActualMinusOne = clienteActualValue - 1;
 
     return (
         <>
-            <div className="content-items">
+            <div className="content-items"> {/* Renderiza el contenedor de elementos */}
+            {/* Renderiza el botón de cancelar con un enlace */}
             <Link to="/Meseros" style={{ textDecoration: 'none' }}><img className="img_cancelar_2" src={cancelar} /></Link>
-            <h1>Selecciona un postre</h1>
-            <div class="flex-container">
-                <h1 className="cliente-actual">Cliente : {clienteActualMinusOne}</h1>
-                <ul className="lista-items">
+            <h1>Selecciona un postre</h1> {/* Renderiza un encabezado */}
+            <div class="flex-container"> {/* Renderiza un contenedor flexible */}
+                {/* Renderiza un encabezado con el número de cliente actual */}
+                <h1 className="cliente-actual">Cliente : {clienteActualMinusOne}</h1> 
+                <ul className="lista-items"> {/* Renderiza una lista de elementos */}
+                {/* Renderiza cada fruta disponible */}
                 {platillos.map((fruta) => (
-                    <li><Link onClick={() => savePlatillo(fruta.Nombre, fruta.Foto)} to={direccion} style={{ textDecoration: 'none' }}><ItemMenu item={fruta} /></Link></li>
+                    <li> {/* Renderiza un enlace con un ítem de menú dentro de la lista */}
+                        <Link onClick={() => savePlatillo(fruta.Nombre, fruta.Foto)} to={direccion} style={{ textDecoration: 'none' }}><ItemMenu item={fruta} /></Link>
+                    </li>
                 ))}
                 </ul>
             </div>
@@ -86,5 +91,5 @@ export const ListaFrutas = () => {
         </>
     );
 };
-
+// Exporta el componente ListaFrutas
 export default ListaFrutas;

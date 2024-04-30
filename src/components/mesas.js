@@ -1,9 +1,9 @@
-import React, { useEffect } from "react";
-import "../css/mesas.css";
-import cancelar from '../assets/images/cancelar.png';
-import { Link } from "react-router-dom";
-import { Alert } from "@mui/material";
+import React, { useEffect } from "react"; // Importa React y useEffect desde la biblioteca react
+import "../css/mesas.css"; // Importa el archivo de estilos CSS para las mesas
+import cancelar from '../assets/images/cancelar.png'; // Importa la imagen de cancelar desde la ruta de imágenes
+import { Link } from "react-router-dom"; // Importa el componente Link de react-router-dom
 
+// Definición del componente Mesas
 const Mesas = () => {
 
     // Eliminar todas las keys del localStorage al cargar la página
@@ -27,14 +27,15 @@ const Mesas = () => {
     return (
         <div className="pantalla-mesas">
             <Link to="/Meseros" style={{ textDecoration: 'none' }}><img className="img-cancelar" src={cancelar} /></Link>
-            <h1>Selecciona tu mesa</h1>
+            <h1>Selecciona tu mesa</h1> {/* Título de la pantalla */}
             <div>
                 <Link to="/Meseros" style={{ textDecoration: 'none' }}>
-                    <button className="boton_Meseros">
+                    <button className="boton_Meseros"> {/* Botón para regresar a la pantalla de Meseros */}
                         🢀
                     </button>
                 </Link>
             </div>
+            {/* Opciones para seleccionar la mesa */}
             <div class="flex-container">
                 <Link to="/Clientes" style={{ textDecoration: 'none' }}><div onClick={() => saveMesa(1)} className="flex-item">1</div></Link>
                 <Link to="/Clientes" style={{ textDecoration: 'none' }}><div onClick={() => saveMesa(2)} className="flex-item">2</div></Link>
@@ -46,5 +47,5 @@ const Mesas = () => {
         </div>
     );
 };
-
+// Exporta el componente Mesas
 export default Mesas;  

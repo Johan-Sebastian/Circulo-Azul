@@ -1,22 +1,22 @@
-import React, { useEffect, useState } from "react";
-import { ItemMenu } from "./ItemMenu";
-import ConsultaMenu from "./ConsultaMenu";
-import cancelar from '../assets/images/cancelar.png';
-import ClienteActual from "./ClienteActual";
-
+import React, { useEffect, useState } from "react"; // Importa React, useEffect y useState
+import { ItemMenu } from "./ItemMenu"; // Importa el componente ItemMenu
+import ConsultaMenu from "./ConsultaMenu"; // Importa la función ConsultaMenu
+import cancelar from '../assets/images/cancelar.png'; // Importa la imagen de cancelar
+import ClienteActual from "./ClienteActual"; // Importa el componente ClienteActual
+// Importa el archivo CSS correspondiente
 import "../css/vistasBD.css"
-
+// Importa el componente Link de react-router-dom
 import { Link } from "react-router-dom"; 
 
-export const ListaBebidas = () => {
-    //Uso de useState
+export const ListaBebidas = () => { // Define un componente de función llamado ListaBebidas
+    // Uso de useState para el estado de la bebida recomendada
     const [bebidaRecomendada, setBebidaRecomendada] = useState("");
-
+    // Obtiene las bebidas del menú
     const bebidas = ConsultaMenu("bebidas");
-    // Uso de useState
+    // Uso de useState para la dirección
     const [direccion, setDireccion] = useState("");
 
-    // Método para guardar el platillo y su imagen en el LocalStorage
+    // Método para guardar la bebida y su imagen en el LocalStorage
     function saveBebida(nombre, imagen) {
     // Se obtienen los demás parámetros guardados en el local storage
     const clienteActual1 = localStorage.getItem("clienteActual");
@@ -65,20 +65,25 @@ export const ListaBebidas = () => {
     // Condición para asignar la dirección
     setDireccion("/ConfirmarOrden");
     }, []);
-
+    // Obtiene el número del cliente actual
     const clienteActualValue = ClienteActual();
     const clienteActualMinusOne = clienteActualValue - 1;
 
   return (
     <>
-      <div className="content-items">
+      <div className="content-items"> {/* Renderiza el contenedor de elementos */}
+      {/* Renderiza el botón de cancelar con un enlace */}
         <Link to="/Meseros" style={{ textDecoration: 'none' }}><img className="img_cancelar_2" src={cancelar} /></Link>
-        <h1>Selecciona una bebida</h1>
-        <div class="flex-container">
+        <h1>Selecciona una bebida</h1> {/* Renderiza un encabezado */}
+        <div class="flex-container"> {/* Renderiza un contenedor flexible */}
+          {/* Renderiza un encabezado con el número del cliente actual */}
           <h1 className="cliente-actual">Cliente : {clienteActualMinusOne}</h1>
-          <ul className="lista-items">
-            {bebidas.map((bebida) => (
-              <li><Link onClick={() => saveBebida(bebida.Nombre, bebida.Foto)} to={direccion} style={{ textDecoration: 'none' }}><ItemMenu item={bebida} bandera={bebida.Nombre == bebidaRecomendada ? true : false} /></Link></li>
+          <ul className="lista-items"> {/* Renderiza una lista de elementos */}
+            {bebidas.map((bebida) => ( 
+              <li> {/* Renderiza cada bebida */}
+                {/* Renderiza un enlace con un ítem de menú dentro de la lista */}
+                <Link onClick={() => saveBebida(bebida.Nombre, bebida.Foto)} to={direccion} style={{ textDecoration: 'none' }}><ItemMenu item={bebida} bandera={bebida.Nombre == bebidaRecomendada ? true : false} /></Link>
+              </li>
             ))}
           </ul>
         </div>
@@ -86,5 +91,5 @@ export const ListaBebidas = () => {
     </>
   );
 };
-
+// Exporta el componente ListaBebidas
 export default ListaBebidas;
